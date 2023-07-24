@@ -26,14 +26,14 @@ const LatestProjects = () => {
       title: "Shortly",
       catagory1: "UI/UX",
       catagory2: "Product Design",
-      link: "https://real-state-website-kappa.vercel.app/",
+      link: "https://relaxed-halva-74798e.netlify.app/",
     },
     {
       img: demo3,
       title: "Daffodil College",
       catagory1: "UI/UX",
       catagory2: "Product Design",
-      link: "https://real-state-website-kappa.vercel.app/",
+      link: "https://daffodil-chandpur-bz6r.vercel.app/",
     },
   ];
   return (
@@ -48,28 +48,34 @@ const LatestProjects = () => {
             Sell All
           </Link>
         </div>
-        <div className=" grid grid-cols-3 gap-10">
-          <Link
-            target="_"
-            href="https://real-state-website-kappa.vercel.app/"
-            className=" bg-slate-100 rounded-2xl border mt-7"
-          >
-            <div className=" rounded-2xl overflow-hidden p-4 space-y-5">
-              <Image src={demo1} alt="project demo" className=" rounded-xl" />
+        <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {projectData.map((data, index) => {
+            const { img, title, catagory1, catagory2, link } = data || {};
+            return (
+              <Link
+                key={index}
+                target="_"
+                href={link}
+                className=" bg-slate-100 rounded-2xl border mt-7"
+              >
+                <div className=" rounded-2xl overflow-hidden p-4 space-y-5">
+                  <Image src={img} alt="project demo" className=" rounded-xl" />
 
-              <div className=" space-y-4">
-                <h2 className=" text-xl font-bold">Chat Dashboard</h2>
-                <div className=" flex items-center gap-5">
-                  <p className=" border rounded-full px-3 border-gray-600">
-                    UI/UX
-                  </p>
-                  <p className=" border rounded-full px-3 border-gray-600">
-                    Product Design
-                  </p>
+                  <div className=" space-y-4">
+                    <h2 className=" text-xl font-bold">{title}</h2>
+                    <div className=" flex items-center gap-5">
+                      <p className=" border rounded-full px-3 border-gray-600">
+                        {catagory1}
+                      </p>
+                      <p className=" border rounded-full px-3 border-gray-600">
+                        {catagory2}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </Link>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </>

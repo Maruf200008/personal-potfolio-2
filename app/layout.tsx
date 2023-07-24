@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
+import Footer from "./Footer";
 import Navbar from "./Navbar";
 import "./globals.css";
 
@@ -24,6 +25,7 @@ export default function RootLayout({
         <Navbar />
         {children}
       </body>
+      <Footer />
     </html>
   );
 }
